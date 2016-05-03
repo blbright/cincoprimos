@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @reservation.user.name %></strong>
+  <strong><%= @reservation.user.name %>'s Reservation:</strong>
 
 </p>
 
@@ -14,6 +14,27 @@
   <strong>End Date:</strong>
   <%= @reservation.end.strftime("%d") %> <%= @reservation.end.strftime("%b") %> <%= @reservation.end.strftime("%Y") %>
 </p>
+
+<h5>Listing Reservation Comments</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<%= link_to 'Create a New Comment', new_reservation_comment_path(@reservation) %><br>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', checkins_path %>

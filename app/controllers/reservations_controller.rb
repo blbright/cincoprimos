@@ -10,6 +10,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+    @comments = @reservation.comments
   end
 
   # GET /reservations/new
@@ -56,7 +57,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
+      format.html { redirect_to checkins_path, notice: 'Reservation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

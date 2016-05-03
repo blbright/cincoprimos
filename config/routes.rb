@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :reservations
+
+  resources :reservations do
+    resources :comments
+  end
   resources :checkouts
   resources :checkins
   devise_for :users
