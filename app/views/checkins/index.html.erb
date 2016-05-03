@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Checkins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checkins.each do |checkin| %>
+      <tr>
+        <td><%= checkin.user.name %> checked in ON <%= checkin.created_at.strftime("%d") %> <%= checkin.created_at.strftime("%b") %> <%= checkin.created_at.strftime("%Y") %> AT <%= checkin.created_at.strftime("%I") %>:<%= checkin.created_at.strftime("%M") %> <%= checkin.created_at.strftime("%p") %> </td>
+        <td><%= link_to 'Show', checkin %></td>
+        <td><%= link_to 'Edit', edit_checkin_path(checkin) %></td>
+        <td><%= link_to 'Destroy', checkin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Checkin', new_checkin_path %>
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+<%= link_to 'Edit Account',edit_user_registration_path %>
