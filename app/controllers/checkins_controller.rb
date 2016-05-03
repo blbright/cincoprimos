@@ -38,6 +38,8 @@ class CheckinsController < ApplicationController
         format.json { render json: @checkin.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # PATCH/PUT /checkins/1
