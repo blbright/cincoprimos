@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reservations
+  resources :checkouts
   resources :checkins
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

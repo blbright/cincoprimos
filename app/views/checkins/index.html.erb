@@ -21,8 +21,32 @@
   </tbody>
 </table>
 
+<h1>Listing Checkouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checkouts.each do |checkout| %>
+      <tr>
+        <td><%= checkout.user.name %> checked out ON <%= checkout.created_at.strftime("%d") %> <%= checkout.created_at.strftime("%b") %> <%= checkout.created_at.strftime("%Y") %> AT <%= checkout.created_at.strftime("%I") %>:<%= checkout.created_at.strftime("%M") %> <%= checkout.created_at.strftime("%p") %> </td>
+        <td><%= link_to 'Show', checkout %></td>
+        <td><%= link_to 'Edit', edit_checkout_path(checkout) %></td>
+        <td><%= link_to 'Destroy', checkout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 <br>
 
 <%= link_to 'New Checkin', new_checkin_path %>
+<%= link_to 'New Checkout', new_checkout_path %>
 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
 <%= link_to 'Edit Account',edit_user_registration_path %>

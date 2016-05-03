@@ -5,6 +5,8 @@ class CheckinsController < ApplicationController
   # GET /checkins.json
   def index
     @checkins = Checkin.all
+    @checkouts = Checkout.all
+    @reservations = Reservation.all
   end
 
   # GET /checkins/1
