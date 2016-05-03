@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Start:</strong>
-  <%= @reservation.start %>
+  <strong><%= @reservation.user.name %></strong>
+
 </p>
 
 <p>
-  <strong>End:</strong>
-  <%= @reservation.end %>
+  <strong>Start Date:</strong>
+  <%= @reservation.start.strftime("%d") %> <%= @reservation.start.strftime("%b") %> <%= @reservation.start.strftime("%Y") %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @reservation.user %>
+  <strong>End Date:</strong>
+  <%= @reservation.end.strftime("%d") %> <%= @reservation.end.strftime("%b") %> <%= @reservation.end.strftime("%Y") %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<%= link_to 'Back', checkins_path %>

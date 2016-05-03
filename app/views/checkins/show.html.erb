@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @checkin.user.name %>
+  <strong><%= @checkin.user.name %></strong>
+</p>
+
+<p>
+  <strong>Checked in ON:</strong>
+  <br>
+  <%= @checkin.created_at.strftime("%d") %> <%= @checkin.created_at.strftime("%b") %> <%= @checkin.created_at.strftime("%Y") %>
+  <br>
+  <br>
+  <strong>AT: </strong>
+  <br>
+  <%= @checkin.created_at.strftime("%I") %>:<%= @checkin.created_at.strftime("%M") %> <%= @checkin.created_at.strftime("%p") %>
 </p>
 
 <%= link_to 'Edit', edit_checkin_path(@checkin) %> |
