@@ -25,14 +25,15 @@ class CheckoutsController < ApplicationController
   # POST /checkouts.json
   def create
 
-    @checkout = Checkout.new(checkout_params)
+   @checkout = Checkout.new(checkout_params)
 
-    if params[:pet_dog].present?
-      @checkout.save
-      redirect_to @checkout, notice: 'Checkout was successfully created.'
-    else
-      redirect_to new_checkout_path, notice: 'Checkout failed. Complete the checkboxes!'
-    end
+if params[:pet_dog].present?
+  @checkout.save
+  redirect_to @checkout, notice: 'Checkout was successfully created.'
+else
+  flash[:notice] = 'Checkout failed. Complete the checkboxes!'
+  render :new
+end
 
   end
 

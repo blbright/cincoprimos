@@ -1,4 +1,11 @@
+<% if flash[:notice] %>
+ <p id="notice"><%= flash[:notice] %></p>
+<% end %>
+
 <%= form_for(@checkin) do |f| %>
+
+
+
   <% if @checkin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@checkin.errors.count, "error") %> prohibited this checkin from being saved:</h2>
