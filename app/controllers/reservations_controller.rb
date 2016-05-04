@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
+
   # GET /reservations
   # GET /reservations.json
   def index
@@ -27,15 +28,14 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
+    if Reservation.exists?(start: @reservation.start)
+      flash[:notice] = 'Reservation failed. Someone has already reserved this date!'
+      render :new
+    else
+      @reservation.save
+      redirect_to @reservation, notice: 'Reservation was successfully created.'
     end
+
   end
 
   # PATCH/PUT /reservations/1
@@ -72,4 +72,6 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.require(:reservation).permit(:start, :end, :user_id)
     end
+
+
 end
