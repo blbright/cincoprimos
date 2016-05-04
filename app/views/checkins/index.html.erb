@@ -1,3 +1,5 @@
+
+
 <div class="container">
 <p id="notice"><%= notice %></p>
 
@@ -6,7 +8,7 @@
   <li><%= link_to 'Edit Account',edit_user_registration_path %></li>
 </ul>
 
-<div class="column">
+<div class="column" id="checkins">
 <h1>Checkins:</h1>
 
 <table>
@@ -31,7 +33,7 @@
 <%= link_to 'New Checkin', new_checkin_path %>
 </div>
 
-<div class="column">
+<div class="column" id="checkouts">
 <h1>Checkouts:</h1>
 
 <table>
@@ -56,7 +58,7 @@
 <%= link_to 'New Checkout', new_checkout_path %>
 </div>
 
-<div class="column">
+<div class="column" id="reservations">
 <h1>Reservation Requests:</h1>
 
 <table>
