@@ -11,21 +11,66 @@
     </div>
   <% end %>
 
-    <div class="field">
-      <%= f.hidden_field :user_id, value: current_user.id %>
-    </div>
-    <div class="field">
-      <%= f.hidden_field :user_name, value: current_user.name %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_name, value: current_user.name %>
+  </div>
 
+  <%= check_box_tag(:clean) %>
+  <%= label_tag(:clean, "Clean up the House and the Guesthouse.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:porch) %>
+  <%= label_tag(:porch, "Remove the cushions from the furniture and stack on the dining room table.  Lock both screen doors.  Make sure all fans and lights are off including 'Dock Power' switch") %>
+  <br>
+  <br>
+  <%= check_box_tag(:porch_chairs) %>
+  <%= label_tag(:porch_chairs, "Arrange all porch chairs on the large and small porches neatly. ") %>
+  <br>
+  <br>
+  <%= check_box_tag(:windows) %>
+  <%= label_tag(:windows, "Lock all windows.  Close all blinds in all bedrooms.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:thermostats) %>
+  <%= label_tag(:thermostats, "Set the thermostats (2) for the forced air system in the main House AND the sleeping side to AWAY (November to March set thermostats to Heat, April to October set thermostats to Cool).  Turn OFF the window unit or space heaters in the guesthouse if used.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:water_heater) %>
+  <%= label_tag(:water_heater, "There are 3.  The House water heater switch is located in the top electric box on the outside of the house nearthe kitchen door (switch #19).The sleeping side water heater switch is located in the electric box on the right wall in Stacy and David’s closet (switch is a green double switch in the left column of switches).The Guesthouse water heater switch is located in an electric box just inside the Guesthouse on the left hand wall (closest to the driveway).  The box is approximately 5 feet off the floor and is usually located behind a picture (with the exterior door open it is just to the right of the door).Open the boxes, find the switches labeled “Water Heater” and switch them to OFF") %>
+  <br>
+  <br>
+  <%= check_box_tag(:lights) %>
+  <%= label_tag(:lights, "Make sure ALL lights are off. Unplug all countertop appliances, and nightlights.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:tv) %>
+  <%= label_tag(:tv, "Turn off the TV and DirecTV box.  Use the OFF button located on the upper right of the remote.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:doors) %>
+  <%= label_tag(:doors, "Lock sliding glass door from the inside. Lock and dead bolt all three regular doors – one to sleeping side and two for the main house. ") %>
+  <br>
+  <br>
+  <%= check_box_tag(:extra_key) %>
+  <%= label_tag(:extra_key, "If you used the Extra Key to open the House, make sure you return it prior to leaving.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:house_keys) %>
+  <%= label_tag(:house_keys, "Make sure the Control and Guest House keys have been returned to the top drawer beside the refrigerator.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:boat_keys) %>
+  <%= label_tag(:boat_keys, "Make sure the boat keys have been returned to the top drawer beside the refrigerator.") %>
+  <br>
+  <br>
+  <%= check_box_tag(:septic) %>
+  <%= label_tag(:septic, "Before leaving, flush each toilet twice. (Master bedroom, guest bathroom by kitchen, two toilets on sleeping side, and Guesthouse if it was used).") %>
 
-<%= check_box_tag(:pet_dog) %>
-<%= label_tag(:pet_dog, "I own a dog") %>
-<%= check_box_tag(:pet_cat) %>
-<%= label_tag(:pet_cat, "I own a cat") %>
-
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 
 <% end %>

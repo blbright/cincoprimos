@@ -24,16 +24,15 @@ class CheckoutsController < ApplicationController
   # POST /checkouts
   # POST /checkouts.json
   def create
+    @checkout = Checkout.new(checkout_params)
 
-   @checkout = Checkout.new(checkout_params)
-
-if params[:pet_dog].present?
-  @checkout.save
-  redirect_to @checkout, notice: 'Checkout was successfully created.'
-else
-  flash[:notice] = 'Checkout failed. Complete the checkboxes!'
-  render :new
-end
+    if params[:clean].present? && params[:porch].present? && params[:porch_chairs].present? && params[:windows].present? && params[:thermostats].present? && params[:water_heater].present? && params[:lights].present? && params[:tv].present? && params[:doors].present? && params[:extra_key].present? && params[:house_keys].present? && params[:boat_keys].present? && params[:septic].present?
+      @checkout.save
+      redirect_to @checkout, notice: 'Checkout was successfully created.'
+    else
+      flash[:notice] = 'Checkout failed. Complete the checkboxes!'
+      render :new
+    end
 
   end
 
