@@ -30,7 +30,7 @@ class CheckoutsController < ApplicationController
       @checkout.save
       redirect_to @checkout, notice: 'Checkout was successfully created.'
     else
-      flash[:notice] = 'Checkout failed. Complete the checkboxes!'
+      flash[:notice] = 'Checkout failed. Please complete all the checkboxes!'
       render :new
     end
 

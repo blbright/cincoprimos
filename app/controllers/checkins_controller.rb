@@ -4,9 +4,9 @@ class CheckinsController < ApplicationController
   # GET /checkins
   # GET /checkins.json
   def index
-    @checkins = Checkin.all
-    @checkouts = Checkout.all
-    @reservations = Reservation.all
+    @checkins = Checkin.limit(10).reverse_order
+    @checkouts = Checkout.limit(10).reverse_order
+    @reservations = Reservation.limit(10).reverse_order
   end
 
   # GET /checkins/1

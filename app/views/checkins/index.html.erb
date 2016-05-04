@@ -1,10 +1,13 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
-<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-<%= link_to 'Edit Account',edit_user_registration_path %>
+
+<ul>
+  <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+  <li><%= link_to 'Edit Account',edit_user_registration_path %></li>
+</ul>
 
 <div class="column">
-<h1>Listing Checkins</h1>
+<h1>Checkins:</h1>
 
 <table>
   <thead>
@@ -18,8 +21,7 @@
       <tr>
         <td><%= checkin.user.name %> checked in ON <%= checkin.created_at.strftime("%d") %> <%= checkin.created_at.strftime("%b") %> <%= checkin.created_at.strftime("%Y") %> AT <%= checkin.created_at.strftime("%I") %>:<%= checkin.created_at.strftime("%M") %> <%= checkin.created_at.strftime("%p") %> </td>
         <td><%= link_to 'Show', checkin %></td>
-        <td><%= link_to 'Edit', edit_checkin_path(checkin) %></td>
-        <td><%= link_to 'Destroy', checkin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', checkin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,7 +32,7 @@
 </div>
 
 <div class="column">
-<h1>Listing Checkouts</h1>
+<h1>Checkouts:</h1>
 
 <table>
   <thead>
@@ -44,8 +46,7 @@
       <tr>
         <td><%= checkout.user.name %> checked out ON <%= checkout.created_at.strftime("%d") %> <%= checkout.created_at.strftime("%b") %> <%= checkout.created_at.strftime("%Y") %> AT <%= checkout.created_at.strftime("%I") %>:<%= checkout.created_at.strftime("%M") %> <%= checkout.created_at.strftime("%p") %> </td>
         <td><%= link_to 'Show', checkout %></td>
-        <td><%= link_to 'Edit', edit_checkout_path(checkout) %></td>
-        <td><%= link_to 'Destroy', checkout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', checkout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -56,7 +57,7 @@
 </div>
 
 <div class="column">
-<h1>Listing Reservations</h1>
+<h1>Reservation Requests:</h1>
 
 <table>
   <thead>
@@ -69,9 +70,9 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.user.name %> would like to reserve FROM <%= reservation.start.strftime("%d") %> <%= reservation.start.strftime("%b") %> <%= reservation.start.strftime("%Y") %> TO <%= reservation.end.strftime("%d") %> <%= reservation.end.strftime("%b") %> <%= reservation.end.strftime("%Y") %> </td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Details', reservation %></td>
+        <td><%= link_to 'Change Dates', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Remove', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
 
       </tr>
@@ -81,7 +82,7 @@
 </table>
 <br>
 
-<%= link_to 'New Reservation', new_reservation_path %>
+<%= link_to 'New Reservation Request', new_reservation_path %>
 </div>
 
 <br>

@@ -15,7 +15,7 @@
   <%= @reservation.end.strftime("%d") %> <%= @reservation.end.strftime("%b") %> <%= @reservation.end.strftime("%Y") %>
 </p>
 
-<h5>Listing Reservation Comments</h5>
+<h5>Comments on this Reservation:</h5>
 
 <table>
   <thead>
@@ -32,8 +32,10 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<br>
 
-<%= link_to 'Create a New Comment', new_reservation_comment_path(@reservation) %><br>
+<%= link_to 'Comment on this Reservation', new_reservation_comment_path(@reservation) %><br>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', checkins_path %>
+<%= link_to 'Edit Reservation Dates', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back to Home', checkins_path %>
