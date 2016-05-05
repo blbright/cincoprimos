@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong><%= notice %></strong>
+</div>
 
 <p>
   <strong><%= @checkin.user.name %></strong>
@@ -15,5 +18,5 @@
   <%= @checkin.created_at.strftime("%I") %>:<%= @checkin.created_at.strftime("%M") %> <%= @checkin.created_at.strftime("%p") %>
 </p>
 
-<%= link_to 'Edit', edit_checkin_path(@checkin) %> |
+<%= link_to 'Remove', @checkin, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back to Home', checkins_path %>

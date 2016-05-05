@@ -70,5 +70,5 @@ class CheckoutsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkout_params
       params.require(:checkout).permit(:user_id)
-
+    end
 end

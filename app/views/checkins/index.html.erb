@@ -1,20 +1,20 @@
-
-
 <div class="container">
 <p id="notice"><%= notice %></p>
-
-<ul>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+<ul class="nav navbar-nav navbar-right">
   <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
   <li><%= link_to 'Edit Account',edit_user_registration_path %></li>
 </ul>
+</div>
 
 <div class="column" id="checkins">
-<h1>Checkins:</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
-    <tr>
-      <th colspan="3"></th>
+  <tr>
+    <th>Checkins:<br>
+      <%= link_to 'New Checkin', new_checkin_path %>
+      </th>
     </tr>
   </thead>
 
@@ -28,21 +28,21 @@
     <% end %>
   </tbody>
 </table>
-<br>
 
-<%= link_to 'New Checkin', new_checkin_path %>
+
 </div>
 
 <div class="column" id="checkouts">
-<h1>Checkouts:</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Checkouts:
+      <br>
+      <%= link_to 'New Checkout', new_checkout_path %>
+      </th>
     </tr>
   </thead>
-
   <tbody>
     <% @checkouts.each do |checkout| %>
       <tr>
@@ -53,21 +53,20 @@
     <% end %>
   </tbody>
 </table>
-<br>
 
-<%= link_to 'New Checkout', new_checkout_path %>
+
 </div>
 
 <div class="column" id="reservations">
-<h1>Reservation Requests:</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Reservation Requests:<br>
+      <%= link_to 'New Reservation Request', new_reservation_path %>
+      </th>
     </tr>
   </thead>
-
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
@@ -82,16 +81,12 @@
 
   </tbody>
 </table>
-<br>
-
-<%= link_to 'New Reservation Request', new_reservation_path %>
-</div>
-
-<br>
-<br>
 
 
 </div>
+</div>
+
+
 
 
 

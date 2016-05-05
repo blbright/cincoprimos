@@ -17,8 +17,7 @@
   <div class="field">
     <%= f.hidden_field :user_name, value: current_user.name %>
   </div>
-
-  <%= check_box_tag(:clean) %>
+  <%= check_box_tag(:clean, :checked => true ) %>
   <%= label_tag(:clean, "Clean up the House and the Guesthouse.") %>
   <br>
   <br>
@@ -70,7 +69,7 @@
   <%= label_tag(:septic, "Before leaving, flush each toilet twice. (Master bedroom, guest bathroom by kitchen, two toilets on sleeping side, and Guesthouse if it was used).") %>
 
   <div class="actions">
-    <%= f.submit "Checkout!" %>
+    <a href="#" class="btn btn-primary"><%= f.submit "Checkout!" %></a>
   </div>
 
 <% end %>

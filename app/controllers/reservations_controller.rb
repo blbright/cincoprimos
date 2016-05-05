@@ -28,13 +28,16 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
-    if @reservation.end_date < @reservation.start_date
+    if @reservation.start_date < Date.today
+      flash[:notice] = 'Reservation failed. Start date must be after Today.'
+      render :new
+    elsif @reservation.end_date < @reservation.start_date
       flash[:notice] = 'Reservation failed. End date must come after start date!'
       render :new
-    elsif Reservation.where(start_date: @reservation.start_date..@reservation.end_date)
+    elsif Reservation.exists?(start_date: @reservation.start_date..@reservation.end_date)
       flash[:notice] = 'Reservation failed. Someone has already reserved this date!'
       render :new
-    elsif Reservation.where(end_date: @reservation.start_date..@reservation.end_date)
+    elsif Reservation.exists?(end_date: @reservation.start_date..@reservation.end_date)
       flash[:notice] = 'Reservation failed. Someone has already reserved this date!'
       render :new
     else

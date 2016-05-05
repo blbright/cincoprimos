@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validate :end_after_start
   validates :start_date, :end_date, :presence => true
