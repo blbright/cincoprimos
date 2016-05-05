@@ -71,7 +71,7 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.user.name %> would like to reserve FROM <%= reservation.start.strftime("%d") %> <%= reservation.start.strftime("%b") %> <%= reservation.start.strftime("%Y") %> TO <%= reservation.end.strftime("%d") %> <%= reservation.end.strftime("%b") %> <%= reservation.end.strftime("%Y") %> </td>
+        <td><%= reservation.user.name %> would like to reserve FROM <%= reservation.start_date.strftime("%d") %> <%= reservation.start_date.strftime("%b") %> <%= reservation.start_date.strftime("%Y") %> TO <%= reservation.end_date.strftime("%d") %> <%= reservation.end_date.strftime("%b") %> <%= reservation.end_date.strftime("%Y") %> </td>
         <td><%= link_to 'Details', reservation %></td>
         <td><%= link_to 'Change Dates', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Remove', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

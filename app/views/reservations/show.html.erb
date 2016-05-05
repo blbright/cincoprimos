@@ -7,12 +7,12 @@
 
 <p>
   <strong>Start Date:</strong>
-  <%= @reservation.start.strftime("%d") %> <%= @reservation.start.strftime("%b") %> <%= @reservation.start.strftime("%Y") %>
+  <%= @reservation.start_date.strftime("%d") %> <%= @reservation.start_date.strftime("%b") %> <%= @reservation.start_date.strftime("%Y") %>
 </p>
 
 <p>
   <strong>End Date:</strong>
-  <%= @reservation.end.strftime("%d") %> <%= @reservation.end.strftime("%b") %> <%= @reservation.end.strftime("%Y") %>
+  <%= @reservation.end_date.strftime("%d") %> <%= @reservation.end_date.strftime("%b") %> <%= @reservation.end_date.strftime("%Y") %>
 </p>
 
 <h5>Comments on this Reservation:</h5>

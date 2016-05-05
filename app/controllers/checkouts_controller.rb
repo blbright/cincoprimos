@@ -1,6 +1,7 @@
 class CheckoutsController < ApplicationController
   before_action :set_checkout, only: [:show, :edit, :update, :destroy]
 
+
   # GET /checkouts
   # GET /checkouts.json
   def index
@@ -69,5 +70,5 @@ class CheckoutsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkout_params
       params.require(:checkout).permit(:user_id)
-    end
+
 end

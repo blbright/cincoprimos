@@ -28,7 +28,13 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
-    if Reservation.exists?(start: @reservation.start)
+    if @reservation.end_date < @reservation.start_date
+      flash[:notice] = 'Reservation failed. End date must come after start date!'
+      render :new
+    elsif Reservation.where(start_date: @reservation.start_date..@reservation.end_date)
+      flash[:notice] = 'Reservation failed. Someone has already reserved this date!'
+      render :new
+    elsif Reservation.where(end_date: @reservation.start_date..@reservation.end_date)
       flash[:notice] = 'Reservation failed. Someone has already reserved this date!'
       render :new
     else
@@ -70,7 +76,7 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:start, :end, :user_id)
+      params.require(:reservation).permit(:start_date, :end_date, :user_id)
     end
 
 
