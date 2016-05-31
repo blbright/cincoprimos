@@ -28,7 +28,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><strong><%=comment.reservation.user.name%>: </strong><%= comment.content %></td>
+        <td><strong><%=comment.user.name%>: </strong><%= comment.content %></td>
       </tr>
     <% end %>
   </tbody>
