@@ -1,5 +1,12 @@
 <%= form_for([@reservation, @comment]) do |f| %>
   <div class="field">
+    <%= f.hidden_field :reservation_id, value: @reservation.id%>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id%>
+  </div>
+
+  <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_area :content %>
   </div>

@@ -10,11 +10,11 @@ class CommentsController < ApplicationController
     @comment = @reservation.comments.create(comment_params)
 
 
-    @comment.content = params[:comment][:content]
+    #@comment.content = params[:comment][:content]
     #@comment.reservation = @reservation
     @comment.save
 
-    redirect_to reservation_path(@reservation)
+    redirect_to @reservation
   end
 
   private

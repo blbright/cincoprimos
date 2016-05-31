@@ -5,13 +5,17 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    #pretty sure i dont need this as there is no index page for reservations
+    #@reservations = Reservation.all
   end
 
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+    @reservation = Reservation.find(params[:id])
+    @comment = Comment.new
     @comments = @reservation.comments
+    #@user = @comment.user.name
   end
 
   # GET /reservations/new
